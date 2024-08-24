@@ -1,0 +1,30 @@
+{
+  "name": "rag",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@google/generative-ai": "^0.17.0",
+    "@mui/material": "^5.16.7",
+    "@mui/material-nextjs": "^5.16.6",
+    "@pinecone-database/pinecone": "^3.0.1",
+    "next": "14.2.5",
+    "node-fetch": "^3.3.2",
+    "openai": "^4.56.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-markdown": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5"
+  }
+}
