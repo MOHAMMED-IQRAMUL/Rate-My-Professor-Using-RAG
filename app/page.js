@@ -2,6 +2,7 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import Img from '../public/OIP.jpeg'
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -92,10 +93,13 @@ export default function Home() {
       justifyContent="center"
       alignItems="center"
       sx={{
-        // backgroundColor: "#b9dbe1",
+        backgroundImage: "url('/pic.jpg')",
+    backgroundSize: "cover", 
+    backgroundPosition: "center",
       }}
     >
-      <Typography variant="h4" >Search For Professor of Your Type</Typography>
+      <Button variant='contained' sx={{position:'absolute', top:'10px', left:'10px'}} href='/Data-Set'>Check Data Set</Button>
+      <Typography variant="h4"  >Search For Professor of Your Type</Typography>
 
       <Stack
         direction="column"
@@ -107,7 +111,11 @@ export default function Home() {
         sx={{
           mx: "auto",
           borderRadius: "16px",
-          // backgroundColor:'blue'
+           backgroundImage: "url('/pic.jpg')",
+           backgroundSize: "cover", 
+           backgroundPosition: "center",
+           boxShadow: " 2px -6px 20px #b9faff;",
+           marginTop:'20px'
         }}
       >
         <Stack
@@ -116,6 +124,7 @@ export default function Home() {
           flexGrow={1}
           overflow="auto"
           maxHeight="100%"
+          
         >
           {messages.map((message, index) => (
             <Box
@@ -128,10 +137,10 @@ export default function Home() {
               <Box
                 bgcolor={
                   message.role === "assistant"
-                    ? "primary.main"
-                    : "secondary.main"
+                    ? "white"
+                    : "#bde58e"
                 }
-                color="white"
+                color="black"
                 borderRadius='25px'
                 p={3}
               >
@@ -149,7 +158,9 @@ export default function Home() {
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             disabled={loading}
-            sx={{ borderRadius: "16px" }} // Make the TextField rounded
+            sx={{ border:'2px solid white',
+               
+             }} 
           />
           <Button
             variant="contained"
