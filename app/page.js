@@ -1,15 +1,18 @@
 "use client";
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import { Box, Button, Stack, TextField, Typography, CircularProgress, Paper, IconButton, Divider } from "@mui/material";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import Img from '../public/OIP.jpeg'
+import { styled } from "@mui/system";
+
 
 export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      content:
-        "Hello, I am Rate My Professor Support Assistant. How can I help you today?",
+      content: "Hello, I am Rate My Professor Support Assistant. How can I help you today?",
     },
   ]);
   const [message, setMessage] = useState("");
@@ -85,93 +88,118 @@ export default function Home() {
   }, [messages]);
 
   return (
-    <Box
-      width="100vw"
-      height="100vh"
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-      sx={{
-        backgroundImage: "url('/pic.jpg')",
-    backgroundSize: "cover", 
-    backgroundPosition: "center",
-      }}
-    >
-      <Button variant='contained' sx={{position:'absolute', top:'10px', left:'10px'}} href='/Data-Set'>Check Data Set</Button>
-      <Typography variant="h4"  >Search For Professor of Your Type</Typography>
-
-      <Stack
-        direction="column"
-        width="70vw"
-        height="700px"
-        border="2px solid lightblue"
-        p='15px 20px'
-        spacing={3}
-        sx={{
-          mx: "auto",
-          borderRadius: "16px",
-           backgroundImage: "url('/pic.jpg')",
-           backgroundSize: "cover", 
-           backgroundPosition: "center",
-           boxShadow: " 2px -6px 20px #b9faff;",
-           marginTop:'20px'
-        }}
+    <Box display="flex" height="100vh" width="100vw" overflow="hidden" bgcolor="#f0f2f5">
+      {/* Sidebar */}
+      <Box
+        width="20vw"
+        bgcolor="#3f51b5"
+        color="white"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        p={2}
+        boxShadow="2px 0px 5px rgba(0, 0, 0, 0.1)"
       >
-        <Stack
-          direction="column"
-          spacing={2}
-          flexGrow={1}
-          overflow="auto"
-          maxHeight="100%"
-          
+        <IconButton color="inherit" sx={{ alignSelf: 'flex-start' }}>
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h5" sx={{ mt: 4, mb: 2 }}>
+          Rate My Professor
+        </Typography>
+        <Divider light sx={{ width: '100%', mb: 2 }} />
+        <Button variant="contained" color="secondary" href="/Data-Set">
+          Check Data Set
+        </Button>
+      </Box>
+
+      {/* Main Chat Area */}
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        width="80vw"
+        p={3}
+      >
+        {/* Header */}
+        <Box
+          bgcolor="#fff"
+          p={2}
+          mb={2}
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
+          borderRadius="8px"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          {messages.map((message, index) => (
-            <Box
-              key={index}
-              display="flex"
-              justifyContent={
-                message.role === "assistant" ? "flex-start" : "flex-end"
-              }
-            >
+          <Typography variant="h6" color="textPrimary">
+            Search For Professor of Your Type
+          </Typography>
+        </Box>
+
+        {/* Chat Messages */}
+        <Paper
+          elevation={3}
+          sx={{
+            flexGrow: 1,
+            p: 2,
+            overflowY: "auto",
+            borderRadius: "8px",
+            bgcolor: "#ffffff",
+          }}
+        >
+          <Stack direction="column" spacing={2}>
+            {messages.map((message, index) => (
               <Box
-                bgcolor={
-                  message.role === "assistant"
-                    ? "white"
-                    : "#bde58e"
-                }
-                color="black"
-                borderRadius='25px'
-                p={3}
+                key={index}
+                display="flex"
+                justifyContent={message.role === "assistant" ? "flex-start" : "flex-end"}
               >
-                <ReactMarkdown>{message.content}</ReactMarkdown>
+                <Box
+                  sx={{
+                    maxWidth: "70%",
+                    p: 2,
+                    borderRadius: "12px",
+                    bgcolor: message.role === "assistant" ? "#f1f1f1" : "#3f51b5",
+                    color: message.role === "assistant" ? "black" : "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+                  }}
+                >
+                  <ReactMarkdown>{message.content}</ReactMarkdown>
+                </Box>
               </Box>
-            </Box>
-          ))}
-          <div ref={messagesEndRef} />
-        </Stack>
-        <Stack direction="row" spacing={2}>
+            ))}
+            <div ref={messagesEndRef} />
+          </Stack>
+        </Paper>
+
+        {/* Message Input */}
+        <Stack direction="row" spacing={2} mt={2}>
           <TextField
-            label="Message"
+            label="Type a message"
             fullWidth
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             disabled={loading}
-            sx={{ border:'2px solid white',
-               
-             }} 
+            sx={{ bgcolor: "white", borderRadius: "8px" }}
           />
-          <Button
-            variant="contained"
+          <IconButton
+            color="primary"
             onClick={sendMessage}
             disabled={loading}
-            aria-label="Send message"
+            sx={{
+              bgcolor: loading ? "grey" : "#3f51b5",
+              color: "white",
+              borderRadius: "50%",
+              "&:hover": {
+                bgcolor: loading ? "grey" : "#303f9f",
+              },
+            }}
           >
-            Send
-          </Button>
+            {loading ? <CircularProgress size={24} sx={{ color: "white" }} /> : <SendIcon />}
+          </IconButton>
         </Stack>
-      </Stack>
+      </Box>
     </Box>
   );
 }
