@@ -2,6 +2,7 @@
 import SendIcon from '@mui/icons-material/Send';
 import MenuIcon from '@mui/icons-material/Menu';
 
+
 import { Box, Button, Stack, TextField, Typography, CircularProgress, Paper, IconButton, Divider } from "@mui/material";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
@@ -29,6 +30,7 @@ export default function Home() {
       { role: "assistant", content: "" },
     ]);
 
+    
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
