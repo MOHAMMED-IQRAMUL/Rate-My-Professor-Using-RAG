@@ -1,5 +1,6 @@
 "use client";
 
+
 import { Box, Typography } from "@mui/material";
 import { React, useState, useEffect } from "react";
 
@@ -12,7 +13,7 @@ const DataSet = () => {
       .then((data) => setReviews(data.reviews));
   }, []);
 
-  return (
+  return ( 
     <Box>
       <Typography variant="h4" textAlign="center">
         Professors
