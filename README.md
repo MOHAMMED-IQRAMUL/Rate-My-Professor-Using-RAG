@@ -1,116 +1,91 @@
-# Rate-My-Professor-Using-RAG
+# ProfessAI Documentation
 
----
+## Overview
+**ProfessAI** is an AI-powered support assistant built to streamline the process for students seeking to find and evaluate professors. This tool uses a Retrieval-Augmented Generation (RAG) system, which combines information retrieval with natural language generation, enabling students to quickly access information about professors based on their specific needs and preferences.
 
-# ProfessAI
-
-**ProfessAI** is an AI-powered assistant designed to help students find the best professors based on their specific needs and preferences. Leveraging a Retrieval-Augmented Generation (RAG) system, ProfessAI analyzes a comprehensive database of professor reviews to provide concise, relevant, and personalized recommendations, streamlining the decision-making process for students.
+### Project URL
+- **Live URL:** [professai.vercel.app](https://professai.vercel.app)
 
 ## Table of Contents
+1. [Project Structure](#project-structure)
+2. [Features](#features)
+3. [Technology Stack](#technology-stack)
+4. [Installation and Setup](#installation-and-setup)
+5. [Usage](#usage)
+6. [Contributors](#contributors)
+7. [License](#license)
 
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## Project Structure
+The ProfessAI project repository includes various files and resources to support development and deployment. Below is a summary of the primary components:
+- **Resources:** Includes documentation files like the `README.md` and the `LICENSE.md`.
+- **Source Code:** The project is mainly composed of Jupyter Notebooks (74.2%) and JavaScript files (25.7%), with minimal CSS for styling.
+- **Deployments:** Production and preview deployments for the project, with the latest production deployment from 5 days ago.
+
+### Repository Stats
+- **Stars:** 2
+- **Watchers:** 1
+- **Forks:** 0
+- **Contributors:** 2 (Daniel Amaya and Mohammed Iqramul)
+- **Languages Used:**
+  - Jupyter Notebook: 74.2%
+  - JavaScript: 25.7%
+  - CSS: 0.1%
 
 ## Features
-
-- **Personalized Professor Recommendations**: Get top 3 professor recommendations based on your specific queries.
-- **Comprehensive Review Analysis**: Analyze detailed reviews including teaching style, course difficulty, and grading fairness.
-- **Real-time Chat Interface**: Interact with the AI assistant through a user-friendly chat interface.
-- **Structured and Concise Information**: Receive well-organized summaries to help you make informed decisions.
-- **Privacy and Security**: Handles data securely, without sharing any personal information that isn’t explicitly stated in official reviews.
+- **AI-Powered Retrieval:** ProfessAI leverages a RAG system to combine traditional search with natural language generation, which allows it to understand user queries and provide relevant professor information.
+- **Personalized Recommendations:** Using natural language processing (NLP), ProfessAI can tailor results based on specific criteria such as teaching style, area of expertise, or student feedback.
+- **User-Friendly Interface:** The application is deployed on Vercel, providing a responsive and accessible interface for students to navigate and access information.
+- **Regular Updates and Easy Deployment:** With multiple deployments and ongoing development, ProfessAI is kept up-to-date to ensure optimal performance and user experience.
 
 ## Technology Stack
+- **Backend:** Python (Jupyter Notebooks for development), used for data processing and AI model training.
+- **Frontend:** JavaScript and minimal CSS for the user interface.
+- **AI/ML Frameworks:** The Retrieval-Augmented Generation system uses NLP models for information retrieval and generation.
+- **Deployment:** Vercel is used for hosting and deployment.
 
-- **Frontend**: React with Material-UI
-- **Backend**: Next.js
-- **AI Models**: Google Generative AI (Gemini) for text embeddings, OpenRouter for GPT-like interactions
-- **Database**: Pinecone for vector storage and retrieval
-- **APIs**: Google Generative AI, OpenAI
-
-## Installation
-
-1. **Clone the repository**
+## Installation and Setup
+### Prerequisites
+- **Python 3.7+**
+- **Node.js 14+**
+- **Jupyter Notebook** for AI model development.
+  
+### Steps
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/MOHAMMED-IQRAMUL/Rate-My-Professor-Using-RAG.git
-   cd Rate-My-Professor-Using-RAG
+   git clone https://github.com/username/professai.git
+   cd professai
    ```
 
-2. **Install dependencies**
+2. **Install the required Python packages:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Install JavaScript dependencies:**
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**
-   Create a `.env` file in the root directory and add the following:
-   ```env
-   PINECONE_API_KEY=your-pinecone-api-key
-   GEMINI_API_KEY=your-gemini-api-key
-   OPENROUTER_API_KEY=your-openrouter-api-key
-   ```
-
-4. **Run the application**
+4. **Run the application:**
    ```bash
-   npm run dev
+   npm run start
    ```
 
-5. **Open in browser**
-   Navigate to `http://localhost:3000` in your web browser.
-
-## Usage
-
-- **Interact with ProfessAI**: Open the web app in your browser and start typing your queries in the chat interface. The AI assistant will provide recommendations based on your inputs.
-
-- **Customizing Recommendations**: You can modify the system prompt or adjust the ranking criteria in the backend to better suit your needs.
-
-## Project Structure
-
-```plaintext
-ProfessAI/
-├── public/                     # Static assets
-├── src/                        # Source files
-│   ├── components/             # React components
-│   ├── pages/                  # Next.js pages
-│   │   ├── api/                # API routes
-│   │   └── index.js            # Main page component
-│   └── styles/                 # CSS and styling files
-├── .env                        # Environment variables
-├── package.json                # Dependencies and scripts
-└── README.md                   # Project documentation
+### Deployment
+ProfessAI is deployed on Vercel, and deployment configurations are already set up in the repository. For a local deployment, Vercel CLI can be used:
+```bash
+vercel
 ```
 
-## Contributing
+## Usage
+Once the application is running, users can:
+- Enter specific queries about professors based on their research interests, teaching methods, or other relevant attributes.
+- Receive AI-generated recommendations and evaluations for professors.
+- Refine searches based on additional criteria to find the best fit.
 
-We welcome contributions from the community! To contribute:
-
-1. **Fork the repository**
-2. **Create a new branch**
-   ```bash
-   git checkout -b feature-your-feature-name
-   ```
-3. **Make your changes and commit them**
-   ```bash
-   git commit -m "Add your message here"
-   ```
-4. **Push to the branch**
-   ```bash
-   git push origin feature-your-feature-name
-   ```
-5. **Open a Pull Request**: We will review your changes and merge them into the main branch.
+## Contributors
+- **Daniel Amayaenvbo** ([@doa29](https://github.com/doa29))
+- **Mohammed Iqramul** ([@MOHAMMED-IQRAMUL](https://github.com/MOHAMMED-IQRAMUL))
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For questions or support, please contact:
-
-- **GitHub**: [your-username](https://github.com/MOHAMMED-IQRAMUL)
-
----
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
