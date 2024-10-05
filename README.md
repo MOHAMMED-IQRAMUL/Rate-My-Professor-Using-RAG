@@ -25,7 +25,7 @@ The ProfessAI project repository includes various files and resources to support
 - **Stars:** 2
 - **Watchers:** 1
 - **Forks:** 0
-- **Contributors:** 2 (Daniel Amaya and Mohammed Iqramul)
+- **Contributors:** 2 (Daniel Amayaenvbo and Mohammed Iqramul)
 - **Languages Used:**
   - Jupyter Notebook: 74.2%
   - JavaScript: 25.7%
